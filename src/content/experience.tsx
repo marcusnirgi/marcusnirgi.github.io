@@ -20,13 +20,22 @@ export const experiences: Experience[] = [
     date: "Jun/Jul 2025",
     description: (
       <Text>
-        <Text display="inline-flex" alignItems="center" gap="0.25em">
-          Graduated <Image src="/tthk_logo.jpeg" alt="TTHK" h="1em" w="auto" />{" "}
-          <Span color="red.400">Tallinn Industrial Education Centre</Span> with
-          honors 🏆
-        </Text>
+        Graduated{" "}
+        <Image
+          src="/tthk_logo.jpeg"
+          alt="TTHK"
+          h="1em"
+          w="auto"
+          display="inline-block"
+          verticalAlign="middle"
+        />{" "}
+        <Span color="red.500" fontWeight="medium">
+          Tallinn Industrial Education Centre
+        </Span>{" "}
+        with honors 🏆
         <Text fontSize="sm" color="fg.muted" fontWeight="light">
-          - Junior Software Developer qualification
+          {" "}
+          - Junior Software Developer qualification{" "}
         </Text>
       </Text>
     ),
@@ -35,14 +44,19 @@ export const experiences: Experience[] = [
     date: "2024",
     description: (
       <Text>
-        <Text display="inline-flex" alignItems="center" gap="0.25em">
+        <Text>
           Started internship at{" "}
           <Image
             src={invendorLogo}
             alt="Invendor"
-            style={{ height: "1em", width: "auto", display: "inline-block" }}
+            h="1em"
+            w="auto"
+            display="inline-block"
+            verticalAlign="middle"
           />{" "}
-          <Span color="blue.500">Invendor</Span>
+          <Span color="blue.500" fontWeight="medium">
+            Invendor
+          </Span>
         </Text>
         <Text fontSize="sm" color="fg.muted" fontWeight="light">
           - Technical/Software Development Intern
@@ -52,7 +66,16 @@ export const experiences: Experience[] = [
   },
   {
     date: "2022",
-    description: "Studied at Tallinn Polytechnic School",
+    description: (
+      <Text>
+        <Text display="inline-flex" alignItems="center" gap="0.25em">
+          Attended Tallinn Polytechnic School
+        </Text>
+        <Text fontSize="sm" color="fg.muted" fontWeight="light">
+          - Electrical Engineering
+        </Text>
+      </Text>
+    ),
   },
   {
     date: "2021",

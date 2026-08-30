@@ -41,8 +41,7 @@ function App() {
         <Stack
           w={{ base: "100%", lg: "90%" }}
           h={{ base: "auto", lg: "90dvh" }}
-          py={{ base: "4", lg: "0" }}
-          px={{ base: "4", lg: "0" }}
+          p="0"
           direction={{ base: "column", lg: "row" }}
           alignItems="stretch"
           justifyContent="center"
@@ -69,7 +68,7 @@ function ProfilePanel({
 }) {
   return (
     <VStack
-      w={{ base: "100%", lg: "30%" }}
+      w={{ base: "100%", lg: "33%" }}
       h={{ base: "auto", lg: "100%" }}
       p={{ base: "4", lg: "8" }}
       bg="bg.panel"
@@ -145,7 +144,9 @@ type SectionId = (typeof sections)[number];
 
 function sectionFromHash(): SectionId {
   const hash = window.location.hash.replace("#", "");
-  return (sections as readonly string[]).includes(hash) ? (hash as SectionId) : "about";
+  return (sections as readonly string[]).includes(hash)
+    ? (hash as SectionId)
+    : "about";
 }
 
 function ContentPanel({
@@ -155,9 +156,8 @@ function ContentPanel({
   knowledgeCards: KnowledgeCard[];
   usedTechnologies: Technology[];
 }) {
-  const [activeSectionId, setActiveSectionId] = useState<SectionId>(
-    sectionFromHash,
-  );
+  const [activeSectionId, setActiveSectionId] =
+    useState<SectionId>(sectionFromHash);
   const handleSectionChange = (sectionId: string) => {
     if ((sections as readonly string[]).includes(sectionId)) {
       setActiveSectionId(sectionId as SectionId);

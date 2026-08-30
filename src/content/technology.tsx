@@ -15,8 +15,10 @@ import {
   SiGit,
   SiNatsdotio,
   SiFigma,
+  SiJest,
 } from "react-icons/si";
 import type { Technology } from "./sections/about-content-section";
+import { PlaywrightIcon } from "../components/playwright-icon";
 
 export const usedTechnologies: Technology[] = [
   { name: "TypeScript", icon: SiTypescript },
@@ -35,4 +37,6 @@ export const usedTechnologies: Technology[] = [
   { name: "NATS.io", icon: SiNatsdotio },
   { name: "Figma", icon: SiFigma },
   { name: "ImHex", icon: LuBinary },
+  { name: "Jest", icon: SiJest },
+  { name: "Playwright", icon: PlaywrightIcon },
 ];
