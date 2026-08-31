@@ -4,6 +4,7 @@ import {
   Field,
   HStack,
   Icon,
+  Link,
   Separator,
   Stack,
   Text,
@@ -25,6 +26,7 @@ import { NavBar } from "./content/navbar";
 import { useEffect, useState } from "react";
 import { ProjectContentSection } from "./content/sections/project-content-section";
 import { ExperienceContentSection } from "./content/sections/experience-content-section";
+import { SiGithub } from "react-icons/si";
 
 function App() {
   return (
@@ -94,6 +96,18 @@ function ProfilePanel({
           <Text textStyle="md" fontWeight="normal">
             Software Developer
           </Text>
+
+          <Link
+            variant="underline"
+            textStyle="md"
+            fontWeight="normal"
+            href="https://github.com/marcusnirgi/"
+          >
+            <Icon>
+              <SiGithub />
+            </Icon>
+            github.com/marcusnirgi
+          </Link>
         </VStack>
       </VStack>
 
@@ -126,7 +140,7 @@ function ProfileDetail({ detail }: { detail: ProfileDetails }) {
         bg="bg.emphasized"
         borderRadius="md"
       >
-        <Icon size="lg" color="accent">
+        <Icon size="lg" color="accent" minW="3rem">
           {icon({})}
         </Icon>
       </Box>
