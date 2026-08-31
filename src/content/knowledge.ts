@@ -1,4 +1,10 @@
-import { LuComputer, LuPencil, LuMicrochip, LuWrench } from "react-icons/lu";
+import {
+  LuComputer,
+  LuPencil,
+  LuMicrochip,
+  LuWrench,
+  LuSparkle,
+} from "react-icons/lu";
 import type { KnowledgeCard } from "./sections/about-content-section";
 
 export const knowledgeCards: KnowledgeCard[] = [
@@ -7,6 +13,12 @@ export const knowledgeCards: KnowledgeCard[] = [
     title: "Full-stack Development",
     description:
       "I build web applications from the frontend to the backend, including APIs, databases, authentication, and everything in between.",
+  },
+  {
+    icon: LuSparkle,
+    title: "Artificial Intelligence",
+    description:
+      "I've integrated AI into personal projects and coursework, experimenting with text and image generation, structured outputs, and other ways of incorporating AI into software.",
   },
   {
     icon: LuPencil,
@@ -20,6 +32,7 @@ export const knowledgeCards: KnowledgeCard[] = [
     description:
       "I've worked on software for SoCs and enjoy getting close to the hardware when a project calls for it.",
   },
+
   {
     icon: LuWrench,
     title: "Game Scripting & Modding",
