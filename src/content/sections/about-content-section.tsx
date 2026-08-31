@@ -8,7 +8,13 @@ import {
   Icon,
 } from "@chakra-ui/react";
 import { SectionSeparator, SectionTitle } from "../content-section-title";
-import { LuComputer } from "react-icons/lu";
+import {
+  LuBook,
+  LuBookDashed,
+  LuComputer,
+  LuInfo,
+  LuWrench,
+} from "react-icons/lu";
 import { SiReact } from "react-icons/si";
 
 export type KnowledgeCard = {
@@ -31,7 +37,12 @@ export function AboutContentSection({
 }) {
   return (
     <>
-      <SectionTitle>ABOUT ME</SectionTitle>
+      <SectionTitle>
+        <Icon size="lg">
+          <LuInfo />
+        </Icon>
+        ABOUT ME
+      </SectionTitle>
       <SectionSeparator borderWidth="2px" />
 
       <Text fontSize="lg" lineHeight="1.8" color="fg.muted" maxW="65ch">
@@ -65,7 +76,12 @@ export function AboutContentSection({
         </Code>
       </Text>
       <Box my={4}>
-        <SectionTitle>MY KNOWLEDGE</SectionTitle>
+        <SectionTitle>
+          <Icon size="lg">
+            <LuBook />
+          </Icon>
+          MY KNOWLEDGE
+        </SectionTitle>
         <SectionSeparator />
 
         <SimpleGrid w="100%" columns={[1, null, 2]} gap="2">
@@ -76,7 +92,13 @@ export function AboutContentSection({
       </Box>
 
       <Box my={4}>
-        <SectionTitle>MY TOOLSET</SectionTitle>
+        <SectionTitle>
+          {" "}
+          <Icon size="lg">
+            <LuWrench />
+          </Icon>
+          MY TOOLSET
+        </SectionTitle>
         <SectionSeparator />
 
         <VStack w="100%" alignItems="start" gap="3">

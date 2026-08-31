@@ -2,6 +2,7 @@ import {
   Box,
   Grid,
   HStack,
+  Icon,
   Image,
   Pagination,
   Text,
@@ -9,7 +10,7 @@ import {
   useBreakpointValue,
 } from "@chakra-ui/react";
 import { useState } from "react";
-import { LuEye } from "react-icons/lu";
+import { LuEye, LuListTodo } from "react-icons/lu";
 import {
   PaginationEllipsis,
   PaginationItem,
@@ -33,7 +34,13 @@ export function ProjectContentSection() {
   return (
     <VStack w="100%" h="100%" gap="4" alignItems="start">
       <Box w="100%" flex="1" minH="0">
-        <SectionTitle>WHAT I'VE WORKED ON</SectionTitle>
+        <SectionTitle>
+          {" "}
+          <Icon size="lg">
+            <LuListTodo />
+          </Icon>
+          WHAT I'VE WORKED ON
+        </SectionTitle>
 
         <SectionSeparator borderWidth="2px" />
 

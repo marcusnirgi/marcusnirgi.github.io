@@ -1,12 +1,19 @@
-import { For, Stack, Timeline } from "@chakra-ui/react";
+import { For, Icon, Stack, Timeline } from "@chakra-ui/react";
 import { SectionTitle, SectionSeparator } from "../content-section-title";
 import { experiences } from "../experience";
+import { LuMilestone } from "react-icons/lu";
 
 export function ExperienceContentSection() {
   return (
     <Stack gap="8" w="100%">
       <Stack gap="2" alignItems="start">
-        <SectionTitle>EXPERIENCE</SectionTitle>
+        <SectionTitle>
+          {" "}
+          <Icon size="lg">
+            <LuMilestone />
+          </Icon>
+          MY EXPERIENCE
+        </SectionTitle>
         <SectionSeparator borderWidth="2px" />
       </Stack>
 

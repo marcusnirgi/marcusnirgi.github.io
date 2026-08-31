@@ -39,6 +39,10 @@ function App() {
         justifyItems="center"
         alignContent="center"
         bg="bg"
+        style={{
+          backgroundImage:
+            "radial-gradient(120% 90% at 50% -10%, var(--chakra-colors-bg-emphasized), var(--chakra-colors-bg) 65%)",
+        }}
       >
         <Stack
           w={{ base: "100%", lg: "90%" }}
@@ -73,7 +77,7 @@ function ProfilePanel({
       w={{ base: "100%", lg: "33%" }}
       h={{ base: "auto", lg: "100%" }}
       p={{ base: "4", lg: "8" }}
-      bg="bg.panel"
+      bg="bg.panel/70"
       borderStyle="solid"
       borderWidth="2px"
       borderColor="bg.muted"
@@ -191,7 +195,7 @@ function ContentPanel({
       w={{ base: "100%", lg: "auto" }}
       h={{ base: "auto", lg: "100%" }}
       alignItems="start"
-      bg="bg.panel"
+      bg="bg.panel/70"
       borderStyle="solid"
       borderWidth="2px"
       borderColor="bg.muted"
