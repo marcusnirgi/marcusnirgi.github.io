@@ -29,6 +29,16 @@ import { ExperienceContentSection } from "./content/sections/experience-content-
 import { SiGithub } from "react-icons/si";
 
 function App() {
+  useEffect(() => {
+    if (!window.matchMedia("(pointer: fine)").matches) return;
+    const onPointerMove = (event: PointerEvent) => {
+      document.documentElement.style.setProperty("--mx", `${event.clientX}px`);
+      document.documentElement.style.setProperty("--my", `${event.clientY}px`);
+    };
+    window.addEventListener("pointermove", onPointerMove);
+    return () => window.removeEventListener("pointermove", onPointerMove);
+  }, []);
+
   return (
     <Provider>
       <Box
@@ -38,16 +48,17 @@ function App() {
         alignItems="center"
         justifyItems="center"
         alignContent="center"
+        position="relative"
         bg="bg"
-        style={{
-          backgroundImage:
-            "radial-gradient(120% 90% at 50% -10%, var(--chakra-colors-bg-emphasized), var(--chakra-colors-bg) 65%)",
-        }}
       >
+        <div className="aurora-1" />
+        <div className="aurora-2" />
         <Stack
           w={{ base: "100%", lg: "90%" }}
           h={{ base: "auto", lg: "90dvh" }}
           p="0"
+          position="relative"
+          zIndex="0"
           direction={{ base: "column", lg: "row" }}
           alignItems="stretch"
           justifyContent="center"
@@ -62,6 +73,7 @@ function App() {
             usedTechnologies={usedTechnologies}
           />
         </Stack>
+        <div className="grain" />
       </Box>
     </Provider>
   );
@@ -78,6 +90,7 @@ function ProfilePanel({
       h={{ base: "auto", lg: "100%" }}
       p={{ base: "4", lg: "8" }}
       bg="bg.panel/70"
+      bgImage="radial-gradient(24rem at var(--mx, 50%) var(--my, 50%), rgba(255, 200, 155, 0.05), transparent 70%)"
       borderStyle="solid"
       borderWidth="2px"
       borderColor="bg.muted"
@@ -100,6 +113,13 @@ function ProfilePanel({
           <Text textStyle="md" fontWeight="normal">
             Software Developer
           </Text>
+
+          <HStack gap="2" mt="1">
+            <Box className="status-dot" />
+            <Text textStyle="sm" color="fg.subtle">
+              Open to work
+            </Text>
+          </HStack>
 
           <Link
             variant="underline"
@@ -196,6 +216,7 @@ function ContentPanel({
       h={{ base: "auto", lg: "100%" }}
       alignItems="start"
       bg="bg.panel/70"
+      bgImage="radial-gradient(24rem at var(--mx, 50%) var(--my, 50%), rgba(255, 200, 155, 0.05), transparent 70%)"
       borderStyle="solid"
       borderWidth="2px"
       borderColor="bg.muted"

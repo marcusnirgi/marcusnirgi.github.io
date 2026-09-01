@@ -109,6 +109,7 @@ function ProjectCard({ project }: { project: Project }) {
         href={project.url}
         target="_blank"
         rel="noopener noreferrer"
+        className="group"
         style={{
           width: "100%",
           flex: "1 1 0%",
@@ -117,6 +118,7 @@ function ProjectCard({ project }: { project: Project }) {
           display: "block",
           overflow: "hidden",
           borderRadius: "0.375rem",
+          transition: "box-shadow 0.2s ease",
         }}
       >
         <Image
@@ -126,6 +128,8 @@ function ProjectCard({ project }: { project: Project }) {
           objectFit="contain"
           src={project.image}
           alt={`${project.name} preview`}
+          transition="transform 0.25s ease"
+          _groupHover={{ transform: "scale(1.05)" }}
         />
 
         <VStack
@@ -138,6 +142,9 @@ function ProjectCard({ project }: { project: Project }) {
           opacity="0"
           transition="opacity 0.2s ease"
           _hover={{
+            opacity: 1,
+          }}
+          _active={{
             opacity: 1,
           }}
         >

@@ -10,7 +10,6 @@ import {
 import { SectionSeparator, SectionTitle } from "../content-section-title";
 import {
   LuBook,
-  LuBookDashed,
   LuComputer,
   LuInfo,
   LuWrench,
