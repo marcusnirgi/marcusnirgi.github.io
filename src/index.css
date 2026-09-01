@@ -18,7 +18,7 @@
 
 .aurora-1,
 .aurora-2 {
-  position: absolute;
+  position: fixed;
   inset: 0;
   pointer-events: none;
 }
@@ -29,7 +29,6 @@
     var(--chakra-colors-bg-emphasized),
     var(--chakra-colors-bg) 65%
   );
-  animation: aurora-drift 18s ease-in-out infinite alternate;
 }
 
 .aurora-2 {
@@ -38,11 +37,10 @@
     color-mix(in srgb, var(--chakra-colors-accent-muted) 30%, transparent),
     transparent 70%
   );
-  animation: aurora-drift 24s ease-in-out infinite alternate-reverse;
 }
 
 .grain {
-  position: absolute;
+  position: fixed;
   inset: 0;
   pointer-events: none;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
@@ -56,15 +54,6 @@
   border-radius: 9999px;
   background: #4ade80;
   animation: status-pulse 2s ease-out infinite;
-}
-
-@keyframes aurora-drift {
-  from {
-    transform: translate3d(-2%, -1%, 0) scale(1);
-  }
-  to {
-    transform: translate3d(2%, 1%, 0) scale(1.06);
-  }
 }
 
 @keyframes status-pulse {
@@ -84,8 +73,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .aurora-1,
-  .aurora-2,
   .status-dot {
     animation: none;
   }
