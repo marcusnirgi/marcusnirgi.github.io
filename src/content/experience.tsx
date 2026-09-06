@@ -54,7 +54,7 @@ export const experiences: Experience[] = [
             display="inline-block"
             verticalAlign="middle"
           />{" "}
-          <Span color="blue.500" fontWeight="medium">
+          <Span color="accent.fg" fontWeight="medium">
             Invendor
           </Span>
         </Text>

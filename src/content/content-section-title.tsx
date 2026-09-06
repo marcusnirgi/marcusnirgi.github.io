@@ -8,6 +8,7 @@ export function SectionTitle({ children }: { children: React.ReactNode }) {
       gap="0.25rem"
       display="flex"
       alignItems="center"
+      color="accent"
     >
       {children}
     </Text>

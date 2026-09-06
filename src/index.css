@@ -1,9 +1,15 @@
 :root {
-  font: 18px/145% "Inter Variable", Inter, system-ui, "Segoe UI", Roboto, sans-serif;
+  font:
+    18px/145% "Inter Variable",
+    Inter,
+    system-ui,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
   letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
+  color-scheme: light;
+  color: var(--chakra-colors-fg);
+  background: var(--chakra-colors-bg);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -12,12 +18,46 @@
   @media (max-width: 1024px) {
     font-size: 16px;
   }
+  scrollbar-color: var(--chakra-colors-border-emphasized)
+    var(--chakra-colors-bg);
+}
 
-  color: rgb(252, 238, 255);
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--chakra-colors-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--chakra-colors-border-emphasized);
+  border-radius: 999px;
+  border: 2px solid var(--chakra-colors-bg);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--chakra-colors-fg-subtle);
+}
+
+::selection {
+  background: var(--chakra-colors-accent-muted);
+}
+
+::-moz-selection {
+  background: var(--chakra-colors-accent-muted);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--chakra-colors-border-emphasized)
+    var(--chakra-colors-bg);
 }
 
 .aurora-1,
-.aurora-2 {
+.aurora-2,
+.spotlight {
   position: fixed;
   inset: 0;
   pointer-events: none;
@@ -26,7 +66,7 @@
 .aurora-1 {
   background: radial-gradient(
     120% 90% at 50% -10%,
-    var(--chakra-colors-bg-emphasized),
+    color-mix(in srgb, var(--chakra-colors-accent-subtle) 55%, transparent),
     var(--chakra-colors-bg) 65%
   );
 }
@@ -34,9 +74,30 @@
 .aurora-2 {
   background: radial-gradient(
     36rem 28rem at 85% 95%,
-    color-mix(in srgb, var(--chakra-colors-accent-muted) 30%, transparent),
+    color-mix(in srgb, var(--chakra-colors-accent-muted) 22%, transparent),
     transparent 70%
   );
+}
+
+.spotlight {
+  z-index: 1;
+  background:
+    radial-gradient(
+      14rem 14rem at var(--mx, 50%) var(--my, 50%),
+      color-mix(in srgb, var(--chakra-colors-accent) 5.5%, transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      34rem 34rem at var(--mx, 50%) var(--my, 50%),
+      color-mix(in srgb, var(--chakra-colors-accent) 3.25%, transparent),
+      transparent 70%
+    );
+}
+
+@media (pointer: coarse) {
+  .spotlight {
+    display: none;
+  }
 }
 
 .grain {
@@ -69,7 +130,8 @@
 }
 
 .group:hover {
-  box-shadow: 0 0 0 1px color-mix(in srgb, var(--chakra-colors-accent) 40%, transparent);
+  box-shadow: 0 0 0 1px
+    color-mix(in srgb, var(--chakra-colors-accent) 40%, transparent);
 }
 
 @media (prefers-reduced-motion: reduce) {

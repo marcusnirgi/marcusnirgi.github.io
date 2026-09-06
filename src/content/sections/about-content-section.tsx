@@ -50,7 +50,7 @@ export function AboutContentSection({
         Half-Life 2, which holds a special place in my heart. That led me into
         Half-Life 2 Roleplay in Garry's Mod, where I picked up my first
         scripting language:{" "}
-        <Text as="span" color="blue.500" fontWeight="medium">
+        <Text as="span" color="accent.fg" fontWeight="medium">
           Lua
         </Text>
         . From there, I started tinkering with just about everything I could get
@@ -132,10 +132,10 @@ function KnowledgeCard({ card }: { card: KnowledgeCard }) {
         boxSize="3.5rem"
         flexShrink="0"
         aspectRatio="1"
-        bg="bg.emphasized"
+        bg="accent.subtle"
         borderRadius="md"
       >
-        <Icon w="2rem" h="2rem" color="accent">
+        <Icon w="2rem" h="2rem" color="accent.fg">
           {icon({})}
         </Icon>
       </Box>

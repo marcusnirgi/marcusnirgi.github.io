@@ -53,6 +53,7 @@ function App() {
       >
         <div className="aurora-1" />
         <div className="aurora-2" />
+        <div className="spotlight" />
         <Stack
           w={{ base: "100%", lg: "90%" }}
           h={{ base: "auto", lg: "90dvh" }}
@@ -90,7 +91,6 @@ function ProfilePanel({
       h={{ base: "auto", lg: "100%" }}
       p={{ base: "4", lg: "8" }}
       bg="bg.panel/70"
-      bgImage="radial-gradient(24rem at var(--mx, 50%) var(--my, 50%), rgba(255, 200, 155, 0.05), transparent 70%)"
       borderStyle="solid"
       borderWidth="2px"
       borderColor="bg.muted"
@@ -125,6 +125,7 @@ function ProfilePanel({
             variant="underline"
             textStyle="md"
             fontWeight="normal"
+            color="fg.muted"
             href="https://github.com/marcusnirgi/"
           >
             <Icon>
@@ -161,10 +162,10 @@ function ProfileDetail({ detail }: { detail: ProfileDetails }) {
         alignItems="center"
         justifyContent="center"
         aspectRatio="1"
-        bg="bg.emphasized"
+        bg="accent.subtle"
         borderRadius="md"
       >
-        <Icon size="lg" color="accent" minW="3rem">
+        <Icon size="lg" color="accent.fg" minW="3rem">
           {icon({})}
         </Icon>
       </Box>
@@ -216,7 +217,6 @@ function ContentPanel({
       h={{ base: "auto", lg: "100%" }}
       alignItems="start"
       bg="bg.panel/70"
-      bgImage="radial-gradient(24rem at var(--mx, 50%) var(--my, 50%), rgba(255, 200, 155, 0.05), transparent 70%)"
       borderStyle="solid"
       borderWidth="2px"
       borderColor="bg.muted"
