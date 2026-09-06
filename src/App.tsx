@@ -153,7 +153,7 @@ function ProfilePanel({
 }
 
 function ProfileDetail({ detail }: { detail: ProfileDetails }) {
-  const { icon, label, value } = detail;
+  const { icon: DetailIcon, label, value } = detail;
 
   return (
     <HStack alignItems="stretch">
@@ -166,7 +166,7 @@ function ProfileDetail({ detail }: { detail: ProfileDetails }) {
         borderRadius="md"
       >
         <Icon size="lg" color="accent.fg" minW="3rem">
-          {icon({})}
+          <DetailIcon />
         </Icon>
       </Box>
 

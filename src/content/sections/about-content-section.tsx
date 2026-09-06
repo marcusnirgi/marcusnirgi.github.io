@@ -113,7 +113,7 @@ export function AboutContentSection({
 }
 
 function KnowledgeCard({ card }: { card: KnowledgeCard }) {
-  const { icon, title, description } = card;
+  const { icon: CardIcon, title, description } = card;
 
   return (
     <HStack
@@ -136,7 +136,7 @@ function KnowledgeCard({ card }: { card: KnowledgeCard }) {
         borderRadius="md"
       >
         <Icon w="2rem" h="2rem" color="accent.fg">
-          {icon({})}
+          <CardIcon />
         </Icon>
       </Box>
 
@@ -154,7 +154,7 @@ function KnowledgeCard({ card }: { card: KnowledgeCard }) {
 }
 
 function TechnologyBadge({ technology }: { technology: Technology }) {
-  const { name, icon } = technology;
+  const { name, icon: TechIcon } = technology;
 
   return (
     <HStack
@@ -166,7 +166,9 @@ function TechnologyBadge({ technology }: { technology: Technology }) {
       py="2"
       gap="2"
     >
-      <Icon size="sm">{icon({})}</Icon>
+      <Icon size="sm">
+        <TechIcon />
+      </Icon>
 
       <Text fontSize="sm">{name}</Text>
     </HStack>

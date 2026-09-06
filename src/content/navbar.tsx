@@ -45,7 +45,7 @@ export type NavBarButtonProps = {
 
 function NavbarButton({
   text,
-  icon,
+  icon: ButtonIcon,
   sectionId,
   active,
   onClick,
@@ -57,9 +57,7 @@ function NavbarButton({
         variant={active ? "subtle" : "ghost"}
         colorPalette="accent"
       >
-        <Icon>
-          <>{icon?.({})}</>
-        </Icon>
+        <Icon>{ButtonIcon && <ButtonIcon />}</Icon>
         {text}
       </Button>
     </Link>

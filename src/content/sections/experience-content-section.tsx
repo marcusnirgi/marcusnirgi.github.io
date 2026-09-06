@@ -34,9 +34,9 @@ export function ExperienceContentSection() {
             <Timeline.Indicator />
           </Timeline.Connector>
           <Timeline.Content>
-            <Timeline.Title>
+            <Timeline.Description>
               Started looking for more exciting opportunities
-            </Timeline.Title>
+            </Timeline.Description>
           </Timeline.Content>
         </Timeline.Item>
         <For each={experiences}>
@@ -52,7 +52,9 @@ export function ExperienceContentSection() {
                 <Timeline.Indicator />
               </Timeline.Connector>
               <Timeline.Content>
-                <Timeline.Title>{experience.description}</Timeline.Title>
+                <Timeline.Description>
+                  {experience.description}
+                </Timeline.Description>
               </Timeline.Content>
             </Timeline.Item>
           )}
