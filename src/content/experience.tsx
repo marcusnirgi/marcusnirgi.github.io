@@ -56,7 +56,7 @@ export const experiences: Experience[] = [
           Invendor
         </Span>
         <Span display="block" fontSize="sm" color="fg.muted" fontWeight="light">
-          - Technical/Software Development Intern
+          - Software Developer / Technical Intern
         </Span>
       </>
     ),
