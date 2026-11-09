@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img" aria-label="Gaming console">
+  <title>KoppelBox gaming console</title>
+  <path d="M120 96c0-16 13-29 29-29h102c16 0 29 13 29 29v206c0 16-13 29-29 29H149c-16 0-29-13-29-29z" fill="#1C1917"/>
+  <path d="M146 120c0-11 9-20 20-20h68c11 0 20 9 20 20v168c0 11-9 20-20 20h-68c-11 0-20-9-20-20z" fill="#F4F2ED"/>
+  <path d="M170 152h60M170 178h60" stroke="#DDD6C7" stroke-width="10" stroke-linecap="round"/>
+  <path d="M170 220h34" stroke="#C85F19" stroke-width="10" stroke-linecap="round"/>
+  <g transform="translate(200 286)">
+    <rect x="-74" y="-26" width="148" height="52" rx="24" fill="#C85F19"/>
+    <path d="M-52 -4h28M-38 -18v28" stroke="#FFF7F0" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="28" cy="-8" r="7" fill="#FFF7F0"/>
+    <circle cx="46" cy="6" r="7" fill="#FFF7F0"/>
+  </g>
+</svg>

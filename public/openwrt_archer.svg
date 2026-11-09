@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img" aria-label="OpenWrt router">
+  <title>OpenWrt router</title>
+  <g fill="none" stroke="#C85F19" stroke-width="14" stroke-linecap="round">
+    <path d="M200 92c46 0 84 38 84 84" opacity="0.28"/>
+    <path d="M200 128c26 0 48 22 48 48" opacity="0.55"/>
+    <path d="M200 164c8 0 14 6 14 14" opacity="0.9"/>
+  </g>
+  <rect x="60" y="238" width="280" height="86" rx="26" fill="#C85F19"/>
+  <rect x="78" y="256" width="244" height="50" rx="16" fill="#FFF7F0"/>
+  <g fill="#C85F19">
+    <rect x="102" y="270" width="44" height="8" rx="4" opacity="0.55"/>
+    <rect x="102" y="286" width="74" height="8" rx="4" opacity="0.3"/>
+  </g>
+  <g fill="#C85F19">
+    <circle cx="268" cy="274" r="7"/>
+    <circle cx="292" cy="274" r="7" opacity="0.55"/>
+    <circle cx="316" cy="274" r="7" opacity="0.3"/>
+  </g>
+  <g stroke="#C85F19" stroke-width="12" stroke-linecap="round">
+    <path d="M104 238v-58"/>
+    <path d="M296 238v-58"/>
+  </g>
+  <g fill="#C85F19">
+    <circle cx="104" cy="168" r="11"/>
+    <circle cx="296" cy="168" r="11"/>
+  </g>
+  <path d="M170 352h60" stroke="#C85F19" stroke-width="12" stroke-linecap="round" opacity="0.35"/>
+</svg>

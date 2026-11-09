@@ -11,7 +11,7 @@ export const profileTraits: ProfileDetails[] = [
   {
     icon: LuMail,
     label: "EMAIL",
-    value: "marcusnirgi@gmail.com",
+    value: "marcus@nirgi.ee",
   },
   {
     icon: LuMapPin,

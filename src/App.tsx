@@ -154,14 +154,16 @@ function ProfilePanel({
 
 function ProfileDetail({ detail }: { detail: ProfileDetails }) {
   const { icon: DetailIcon, label, value } = detail;
+  const isEmail = label === "EMAIL";
 
   return (
-    <HStack alignItems="stretch">
+    <HStack alignItems="stretch" minW="0">
       <Box
         display="flex"
         alignItems="center"
         justifyContent="center"
         aspectRatio="1"
+        flexShrink="0"
         bg="accent.subtle"
         borderRadius="md"
       >
@@ -170,9 +172,27 @@ function ProfileDetail({ detail }: { detail: ProfileDetails }) {
         </Icon>
       </Box>
 
-      <Field.Root>
+      <Field.Root minW="0">
         <Field.Label color="fg.subtle">{label}</Field.Label>
-        <Text>{value}</Text>
+        {isEmail ? (
+          <Link
+            href={`mailto:${value}`}
+            color="accent.fg"
+            wordBreak="break-all"
+            textDecoration="none"
+            _hover={{ textDecoration: "underline" }}
+            _focusVisible={{
+              outline: "2px solid",
+              outlineColor: "accent.focusRing",
+              outlineOffset: "2px",
+              borderRadius: "sm",
+            }}
+          >
+            {value}
+          </Link>
+        ) : (
+          <Text>{value}</Text>
+        )}
       </Field.Root>
     </HStack>
   );
@@ -183,6 +203,7 @@ type SectionId = (typeof sections)[number];
 
 function sectionFromHash(): SectionId {
   const hash = window.location.hash.replace("#", "");
+  if (hash.startsWith("project/")) return "projects";
   return (sections as readonly string[]).includes(hash)
     ? (hash as SectionId)
     : "about";
