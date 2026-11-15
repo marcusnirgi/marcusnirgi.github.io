@@ -26,9 +26,13 @@ import { NavBar } from "./content/navbar";
 import { useEffect, useState } from "react";
 import { ProjectContentSection } from "./content/sections/project-content-section";
 import { ExperienceContentSection } from "./content/sections/experience-content-section";
+import {
+  BlogContentSection,
+  type BlogPostItem,
+} from "./content/sections/blog-content-section";
 import { SiGithub } from "react-icons/si";
 
-function App() {
+function App({ blogPosts = [] }: { blogPosts?: BlogPostItem[] }) {
   useEffect(() => {
     if (!window.matchMedia("(pointer: fine)").matches) return;
     const onPointerMove = (event: PointerEvent) => {
@@ -72,6 +76,7 @@ function App() {
           <ContentPanel
             knowledgeCards={knowledgeCards}
             usedTechnologies={usedTechnologies}
+            blogPosts={blogPosts}
           />
         </Stack>
         <div className="grain" />
@@ -198,7 +203,7 @@ function ProfileDetail({ detail }: { detail: ProfileDetails }) {
   );
 }
 
-const sections = ["about", "projects", "experience"] as const;
+const sections = ["about", "projects", "experience", "blog"] as const;
 type SectionId = (typeof sections)[number];
 
 function sectionFromHash(): SectionId {
@@ -212,9 +217,11 @@ function sectionFromHash(): SectionId {
 function ContentPanel({
   knowledgeCards,
   usedTechnologies,
+  blogPosts = [],
 }: {
   knowledgeCards: KnowledgeCard[];
   usedTechnologies: Technology[];
+  blogPosts?: BlogPostItem[];
 }) {
   const [activeSectionId, setActiveSectionId] =
     useState<SectionId>(sectionFromHash);
@@ -266,6 +273,9 @@ function ContentPanel({
             )}
             {activeSectionId === "projects" && <ProjectContentSection />}
             {activeSectionId === "experience" && <ExperienceContentSection />}
+            {activeSectionId === "blog" && (
+              <BlogContentSection posts={blogPosts} />
+            )}
           </>
         ) : (
           <VStack w="100%" alignItems="stretch" gap="10">
@@ -275,6 +285,7 @@ function ContentPanel({
             />
             <ProjectContentSection />
             <ExperienceContentSection />
+            <BlogContentSection posts={blogPosts} />
           </VStack>
         )}
       </Box>

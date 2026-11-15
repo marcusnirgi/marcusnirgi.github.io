@@ -5,6 +5,7 @@ export function SectionTitle({ children }: { children: React.ReactNode }) {
     <Text
       textStyle="2xl"
       fontWeight="bold"
+      lineHeight="1.3"
       gap="0.25rem"
       display="flex"
       alignItems="center"

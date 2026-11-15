@@ -45,7 +45,7 @@ export const experiences: Experience[] = [
       <>
         Started internship at{" "}
         <Image
-          src={invendorLogo}
+          src={invendorLogo.src}
           alt="Invendor"
           h="1em"
           w="auto"

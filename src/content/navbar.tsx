@@ -1,6 +1,6 @@
 import { Button, HStack, Icon, Link } from "@chakra-ui/react";
 import type { IconType } from "react-icons";
-import { LuBriefcaseBusiness, LuFolderKanban, LuInfo } from "react-icons/lu";
+import { LuBookOpen, LuBriefcaseBusiness, LuFolderKanban, LuInfo } from "react-icons/lu";
 
 export type NavBarProps = {
   activeSectionId: string;
@@ -30,6 +30,13 @@ export function NavBar({ activeSectionId, setActiveSectionId }: NavBarProps) {
         text="EXPERIENCE"
         icon={LuBriefcaseBusiness}
         sectionId="experience"
+      />
+      <NavbarButton
+        active={activeSectionId === "blog"}
+        onClick={() => setActiveSectionId("blog")}
+        text="BLOG"
+        icon={LuBookOpen}
+        sectionId="blog"
       />
     </HStack>
   );

@@ -1,0 +1,190 @@
+---
+import { getCollection, render } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import "../../index.css";
+import "@fontsource-variable/inter";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+  return posts.map((post) => ({
+    params: { id: post.id },
+    props: { post },
+  }));
+}
+
+interface Props {
+  post: CollectionEntry<"blog">;
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{post.data.title} - Marcus Nirgi</title>
+  </head>
+  <body>
+    <div class="page-container">
+      <div class="aurora-1"></div>
+      <div class="aurora-2"></div>
+      <div class="spotlight"></div>
+      <main class="post-panel">
+        <a href="/#blog" class="back-link">&larr; Back to blog</a>
+        <header class="post-header">
+          <h1>{post.data.title}</h1>
+          <div class="post-meta">
+            <time
+              datetime={post.data.pubDate.toISOString()}
+              data-post-date={post.data.pubDate.toISOString()}
+            >
+              {post.data.pubDate.toISOString().slice(0, 10)}
+            </time>
+          </div>
+          {
+            post.data.description && (
+              <p class="post-description">{post.data.description}</p>
+            )
+          }
+        </header>
+        <hr class="post-separator" />
+        <article class="post-body">
+          <Content />
+        </article>
+      </main>
+      <div class="grain"></div>
+    </div>
+
+    <script>
+      document.querySelectorAll("time[data-post-date]").forEach((el) => {
+        const rawDate = el.getAttribute("data-post-date");
+        if (rawDate) {
+          const date = new Date(rawDate);
+          if (!isNaN(date.getTime())) {
+            el.textContent = date.toLocaleDateString();
+          }
+        }
+      });
+    </script>
+
+    <style>
+      .page-container {
+        width: 100%;
+        min-height: 100dvh;
+        overflow-x: hidden;
+        position: relative;
+        background: var(--chakra-colors-bg);
+        display: flex;
+        justify-content: center;
+        padding: 2rem 1rem;
+        box-sizing: border-box;
+      }
+      .post-panel {
+        width: 100%;
+        max-width: 48rem;
+        background: color-mix(
+          in srgb,
+          var(--chakra-colors-bg-panel, #ffffff) 70%,
+          transparent
+        );
+        border: 2px solid var(--chakra-colors-bg-muted, #ddd6c7);
+        border-radius: 0.375rem;
+        padding: 2rem;
+        position: relative;
+        z-index: 1;
+        box-sizing: border-box;
+        backdrop-filter: blur(8px);
+      }
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--chakra-colors-accent);
+        font-weight: 500;
+        text-decoration: none;
+        margin-bottom: 1.5rem;
+      }
+      .back-link:hover {
+        text-decoration: underline;
+      }
+      .post-header h1 {
+        font-size: 2rem;
+        font-weight: 700;
+        line-height: 1.35;
+        margin: 0.5rem 0;
+        color: var(--chakra-colors-fg);
+      }
+      .post-meta {
+        font-size: 0.875rem;
+        color: var(--chakra-colors-fg-subtle);
+        margin-bottom: 0.5rem;
+      }
+      .post-description {
+        font-size: 1.1rem;
+        color: var(--chakra-colors-fg-muted);
+        margin: 0.5rem 0 0;
+      }
+      .post-separator {
+        border: 0;
+        border-top: 2px solid var(--chakra-colors-accent);
+        margin: 1.5rem 0 2rem;
+      }
+      .post-body {
+        line-height: 1.75;
+        color: var(--chakra-colors-fg);
+      }
+      .post-body :global(h1),
+      .post-body :global(h2),
+      .post-body :global(h3),
+      .post-body :global(h4) {
+        color: var(--chakra-colors-fg);
+        font-weight: 700;
+        line-height: 1.35;
+        margin-top: 1.5em;
+        margin-bottom: 0.5em;
+      }
+      .post-body :global(h1) {
+        font-size: 1.75rem;
+      }
+      .post-body :global(h2) {
+        font-size: 1.4rem;
+      }
+      .post-body :global(h3) {
+        font-size: 1.2rem;
+      }
+      .post-body :global(p) {
+        margin-bottom: 1em;
+        color: var(--chakra-colors-fg-muted);
+      }
+      .post-body :global(ul),
+      .post-body :global(ol) {
+        margin-bottom: 1em;
+        padding-left: 1.5em;
+        color: var(--chakra-colors-fg-muted);
+      }
+      .post-body :global(li) {
+        margin-bottom: 0.25em;
+      }
+      .post-body :global(a) {
+        color: var(--chakra-colors-accent);
+        text-decoration: underline;
+      }
+      .post-body :global(code) {
+        font-size: 0.9em;
+        padding: 0.15em 0.35em;
+        border-radius: 0.25rem;
+        background: var(--chakra-colors-bg-subtle);
+      }
+      .post-body :global(pre) {
+        padding: 1rem;
+        border-radius: 0.5rem;
+        overflow-x: auto;
+        margin-bottom: 1.5em;
+      }
+    </style>
+  </body>
+</html>
