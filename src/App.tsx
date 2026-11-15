@@ -103,10 +103,15 @@ function ProfilePanel({
       alignItems="start"
     >
       <VStack w="100%" p="4" gap="4">
-        <Box w={{ base: "10rem", lg: "12rem" }} h="auto">
-          <Avatar.Root size="full">
+        <Box
+          w={{ base: "10rem", lg: "12rem" }}
+          h={{ base: "10rem", lg: "12rem" }}
+          aspectRatio="1"
+          flexShrink="0"
+        >
+          <Avatar.Root size="full" w="100%" h="100%">
             <Avatar.Fallback name="Marcus Nirgi" />
-            <Avatar.Image src="avatar.png" />
+            <Avatar.Image src="/avatar.png" />
           </Avatar.Root>
         </Box>
 
